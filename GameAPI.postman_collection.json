@@ -1,0 +1,64 @@
+{
+	"info": {
+		"name": "Game Quiz API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Match Player A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"playerId\": \"user_001\",\n    \"level\": 1\n}",
+					"options": { "raw": { "language": "json" } }
+				},
+				"url": { "host": ["localhost"], "port": "3000", "path": ["api", "match"] }
+			},
+			"response": []
+		},
+		{
+			"name": "2. Match Player B (Triggers Match)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"playerId\": \"user_002\",\n    \"level\": 1\n}",
+					"options": { "raw": { "language": "json" } }
+				},
+				"url": { "host": ["localhost"], "port": "3000", "path": ["api", "match"] }
+			},
+			"response": []
+		},
+		{
+			"name": "3. Submit Answers (Player A)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": \"PASTE_GAME_ID_HERE\",\n    \"playerId\": \"user_001\",\n    \"answers\": {\n        \"65a...q1\": \"Paris\",\n        \"65b...q2\": \"Mars\"\n    }\n}",
+					"options": { "raw": { "language": "json" } }
+				},
+				"url": { "host": ["localhost"], "port": "3000", "path": ["api", "submit"] }
+			},
+			"response": []
+		},
+		{
+			"name": "4. Submit Answers (Player B - Winner Check)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gameId\": \"PASTE_GAME_ID_HERE\",\n    \"playerId\": \"user_002\",\n    \"answers\": {\n        \"65a...q1\": \"Paris\",\n        \"65b...q2\": \"Jupiter\"\n    }\n}",
+					"options": { "raw": { "language": "json" } }
+				},
+				"url": { "host": ["localhost"], "port": "3000", "path": ["api", "submit"] }
+			},
+			"response": []
+		}
+	]
+}
